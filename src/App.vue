@@ -1,16 +1,22 @@
 <!-- 参考リンク -->
-<!-- https://ja.vuejs.org/tutorial/#step-5 -->
+<!-- https://ja.vuejs.org/tutorial/#step-6 -->
 
 <script setup>
 import { ref } from 'vue'
 
-const text = ref('')
+const awesome = ref(true)
+
+//真偽値の反転
+const toggle = () => {
+  awesome.value = !awesome.value
+}
 </script>
 
 <template>
-  <!-- v-model は onInput(e)みたいな感じ -->
-  <input v-model="text" placeholder="Type Here">
-  <p>{{ text }}</p>
+  <button @click="toggle">toggle</button>
+  <!-- v-if v-elseで分岐する -->
+  <h1 v-if="awesome">Vue is awesome!</h1>
+  <h1 v-else>Oh no😭</h1>
 </template>
 
 
