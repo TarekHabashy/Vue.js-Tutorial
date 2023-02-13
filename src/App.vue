@@ -1,5 +1,5 @@
 <!-- 参考リンク -->
-<!-- https://ja.vuejs.org/tutorial/#step-6 -->
+<!-- https://ja.vuejs.org/tutorial/#step-7 -->
 
 <script setup>
 import { ref } from 'vue'
