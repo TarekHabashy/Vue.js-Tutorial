@@ -1,25 +1,19 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 
-//reactive の使い方
-const counter = reactive({
-  count:0
-})
+const titleClass = ref("title")
 
-console.log(counter.count)
-counter.count++
-
-//refの使い方
-const message = ref("Hello World")
-//文字を代入する関数か？
-console.log(message)
-message.value = "Changed"
 </script>
 
 <template>
-  <h1>{{ message }}</h1>
-  <p>Count is: {{ counter.count }}</p>
+  <h1 :class="titleClass">Make me red</h1>
 </template>
 
+<style>
+.title{
+  color: red;
+}
+</style>
+
 <!-- 参考リンク -->
-<!-- https://ja.vuejs.org/tutorial/#step-2 -->
+<!-- https://ja.vuejs.org/tutorial/#step-3 -->
