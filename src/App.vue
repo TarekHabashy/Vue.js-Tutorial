@@ -4,19 +4,38 @@
 <script setup>
 import { ref } from 'vue'
 
-const awesome = ref(true)
+let id = 0
 
-//真偽値の反転
-const toggle = () => {
-  awesome.value = !awesome.value
+const newTodo = ref('')
+
+//id++することでn+1できて便利
+const todos = ref([
+  { id: id++, text: 'Learn HTML'},
+  { id: id++, text: 'Learn Javascript'},
+  { id: id++, text: 'Learn Vue'}
+])
+
+const addTodo=()=>{
+  todos.value.push({id: id++, text: newTodo.value})
+  newTodo.value='' //値の初期化
+}
+
+const removeTodo=(todo)=>{
+  todos.value = todos.value.filter((t) => t !== todo) //t とは → filterの返り値
 }
 </script>
 
 <template>
-  <button @click="toggle">toggle</button>
-  <!-- v-if v-elseで分岐する -->
-  <h1 v-if="awesome">Vue is awesome!</h1>
-  <h1 v-else>Oh no😭</h1>
+  <form @submit.prevent="addTodo">
+    <input v-model="newTodo"> <!-- v-model は onInputのこと-->
+    <button>Add Todo</button>
+  </form>
+  <ul>
+    <li v-for="todo in todos" :key="todo.id">
+      {{ todo.text }}
+      <button @click="removeTodo(todo)">X</button>
+    </li>
+  </ul>
 </template>
 
 
