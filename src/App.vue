@@ -1,18 +1,16 @@
+<!-- 参考リンク -->
+<!-- https://ja.vuejs.org/tutorial/#step-5 -->
+
 <script setup>
 import { ref } from 'vue'
 
-const count = ref(0)
-
-const increment = () =>{
-  count.value++
-}
-
+const text = ref('')
 </script>
 
 <template>
-  <button @click="increment">count is: {{ count }}</button>
+  <!-- v-model は onInput(e)みたいな感じ -->
+  <input v-model="text" placeholder="Type Here">
+  <p>{{ text }}</p>
 </template>
 
 
-<!-- 参考リンク -->
-<!-- https://ja.vuejs.org/tutorial/#step-4 -->
